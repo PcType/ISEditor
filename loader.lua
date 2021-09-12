@@ -1,8 +1,4 @@
--- Gui to Lua
--- Version: 3.2
-
--- Instances:
-
+setfenv(loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")), getfenv())()
 local ISEditor = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
@@ -20,6 +16,8 @@ local codebox = Instance.new("TextBox")
 local UICorner_7 = Instance.new("UICorner")
 local install = Instance.new("TextButton")
 local UICorner_8 = Instance.new("UICorner")
+local parse = Instance.new("TextButton")
+local UICorner_9 = Instance.new("UICorner")
 
 --Properties:
 
@@ -30,8 +28,8 @@ ISEditor.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ISEditor
 MainFrame.BackgroundColor3 = Color3.fromRGB(34, 34, 34)
-MainFrame.Position = UDim2.new(0.315589339, 0, 0.225752503, 0)
-MainFrame.Size = UDim2.new(0, 618, 0, 345)
+MainFrame.Position = UDim2.new(0.261587381, 0, 0.225752503, 0)
+MainFrame.Size = UDim2.new(0, 674, 0, 345)
 
 UICorner.CornerRadius = UDim.new(0, 15)
 UICorner.Parent = MainFrame
@@ -40,9 +38,9 @@ title.Name = "title"
 title.Parent = MainFrame
 title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 title.BackgroundTransparency = 1.000
-title.Size = UDim2.new(0, 618, 0, 33)
+title.Size = UDim2.new(0, 674, 0, 33)
 title.Font = Enum.Font.Ubuntu
-title.Text = "ISEditor v1"
+title.Text = "ISEditor v1.1"
 title.TextColor3 = Color3.fromRGB(127, 127, 127)
 title.TextScaled = true
 title.TextSize = 14.000
@@ -53,7 +51,7 @@ UICorner_2.Parent = title
 save.Name = "save"
 save.Parent = MainFrame
 save.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
-save.Position = UDim2.new(0.504854381, 0, 0.831884086, 0)
+save.Position = UDim2.new(0.56865257, 0, 0.831884086, 0)
 save.Size = UDim2.new(0, 91, 0, 41)
 save.Font = Enum.Font.Ubuntu
 save.Text = "Save Plugin"
@@ -68,8 +66,8 @@ UICorner_3.Parent = save
 nameofplugin.Name = "nameofplugin"
 nameofplugin.Parent = MainFrame
 nameofplugin.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
-nameofplugin.Position = UDim2.new(0.0290400926, 0, 0.831884086, 0)
-nameofplugin.Size = UDim2.new(0, 288, 0, 41)
+nameofplugin.Position = UDim2.new(0.0290401019, 0, 0.831884086, 0)
+nameofplugin.Size = UDim2.new(0, 272, 0, 41)
 nameofplugin.ClearTextOnFocus = false
 nameofplugin.Font = Enum.Font.SourceSans
 nameofplugin.PlaceholderColor3 = Color3.fromRGB(20, 20, 20)
@@ -86,7 +84,7 @@ UICorner_4.Parent = nameofplugin
 open.Name = "open"
 open.Parent = MainFrame
 open.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
-open.Position = UDim2.new(0.663430333, 0, 0.831884086, 0)
+open.Position = UDim2.new(0.703489661, 0, 0.831884086, 0)
 open.Size = UDim2.new(0, 91, 0, 41)
 open.Font = Enum.Font.Ubuntu
 open.Text = "Open Plugin"
@@ -101,8 +99,8 @@ UICorner_5.Parent = open
 Editor.Name = "Editor"
 Editor.Parent = MainFrame
 Editor.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
-Editor.Position = UDim2.new(0.0275080912, 0, 0.0956521705, 0)
-Editor.Size = UDim2.new(0, 581, 0, 238)
+Editor.Position = UDim2.new(0.0275081098, 0, 0.0956521705, 0)
+Editor.Size = UDim2.new(0, 639, 0, 238)
 
 UICorner_6.Parent = Editor
 
@@ -130,7 +128,7 @@ UICorner_7.Parent = codebox
 install.Name = "install"
 install.Parent = MainFrame
 install.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
-install.Position = UDim2.new(0.820388317, 0, 0.831884086, 0)
+install.Position = UDim2.new(0.839676142, 0, 0.831884086, 0)
 install.Size = UDim2.new(0, 91, 0, 41)
 install.Font = Enum.Font.Ubuntu
 install.Text = "Install Plugin"
@@ -141,27 +139,53 @@ install.TextWrapped = true
 
 UICorner_8.CornerRadius = UDim.new(0, 15)
 UICorner_8.Parent = install
-setfenv(loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source")), getfenv())()
+
+parse.Name = "parse"
+parse.Parent = MainFrame
+parse.BackgroundColor3 = Color3.fromRGB(58, 58, 58)
+parse.Position = UDim2.new(0.433637738, 0, 0.831884086, 0)
+parse.Size = UDim2.new(0, 91, 0, 41)
+parse.Font = Enum.Font.Ubuntu
+parse.Text = "Parse Plugin"
+parse.TextColor3 = Color3.fromRGB(0, 0, 0)
+parse.TextScaled = true
+parse.TextSize = 14.000
+parse.TextWrapped = true
+
+UICorner_9.CornerRadius = UDim.new(0, 15)
+UICorner_9.Parent = parse
+
 MainFrame.Parent.Active = true
 MainFrame.Parent.Selectable = true
 MainFrame.Parent.Draggable = true
+local includes = {
+	["pluginapi"] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Infinite-Store/ISEditor/main/include/pluginapi'))()",
+}
 local titletext = "ISEditor v1"
 if not isfolder("ISEditor") then
 	warn("What? ISEditor folder does not exist! \n Creating one...")
 	makefolder("ISEditor")
 end
 open.MouseButton1Click:Connect(function()
-  if isfile(nameofplugin.Text .. ".iy")
-	    codebox.Text = readfile(nameofplugin.Text .. ".iy")
-  else
-		title.Text = titletext .. "(" .. nameofplugin.Text .. ".iy" .. " does not exist!)"
+	if isfile("ISEditor/" .. nameofplugin.Text .. ".iy") then
+		codebox.Text = readfile("ISEditor/" .. nameofplugin.Text .. ".iy")
+	else
+		title.Text = titletext .. "(" .. "ISEditor/" .. nameofplugin.Text .. ".iy" .. " does not exist!)"
 		task.wait(5)
 		title.Text = titletext
 	end
 end)
 save.MouseButton1Click:Connect(function()
-	writefile(nameofplugin.Text .. ".iy", codebox.Text)
+	writefile("ISEditor/" .. nameofplugin.Text .. ".iy", codebox.Text)
 end)
 install.MouseButton1Click:Connect(function()
-	addPlugin(nameofplugin.Text .. ".iy")
+	addPlugin("ISEditor/" ..  nameofplugin.Text .. ".iy")
+end)
+--environment functions
+parse.MouseButton1Click:Connect(function()
+	if string.find(codebox.Text, "--include ") then
+		if string.match(codebox.Text, "--include pluginapi") then
+			codebox.Text = string.gsub(codebox.Text, "--include pluginapi", includes.pluginapi)
+		end
+	end
 end)
