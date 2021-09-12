@@ -1,0 +1,18 @@
+local PluginAPI = {}
+function PluginAPI:CreatePlugin(name, description) 
+	local Functions = {}
+	local Plugin = {
+		["PluginName"] = name,
+		["PluginDescription"] = description,
+		["Commands"] = {}
+	}
+	function Functions:AddCommand(Name, ListName, Description, Aliases, Callback) 
+		Plugin["Commands"][Name] = {
+			["ListName"] = ListName,
+			["Description"] = Description,
+			["Aliases"] = Aliases,
+			["Function"] = Callback
+		}
+	end
+	return {PluginTable = Plugin, Functions = Functions}
+end
