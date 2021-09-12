@@ -161,25 +161,21 @@ MainFrame.Parent.Draggable = true
 local includes = {
 	["pluginapi"] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Infinite-Store/ISEditor/main/include/pluginapi'))()",
 }
-local titletext = "ISEditor v1"
-if not isfolder("ISEditor") then
-	warn("What? ISEditor folder does not exist! \n Creating one...")
-	makefolder("ISEditor")
-end
+local titletext = "ISEditor v1.1.1"
 open.MouseButton1Click:Connect(function()
-	if isfile("ISEditor/" .. nameofplugin.Text .. ".iy") then
-		codebox.Text = readfile("ISEditor/" .. nameofplugin.Text .. ".iy")
+	if isfile(nameofplugin.Text .. ".iy") then
+		codebox.Text = readfile(nameofplugin.Text .. ".iy")
 	else
-		title.Text = titletext .. "(" .. "ISEditor/" .. nameofplugin.Text .. ".iy" .. " does not exist!)"
+		title.Text = titletext .. "(" .. nameofplugin.Text .. ".iy" .. " does not exist!)"
 		task.wait(5)
 		title.Text = titletext
 	end
 end)
 save.MouseButton1Click:Connect(function()
-	writefile("ISEditor/" .. nameofplugin.Text .. ".iy", codebox.Text)
+	writefile(nameofplugin.Text .. ".iy", codebox.Text)
 end)
 install.MouseButton1Click:Connect(function()
-	addPlugin("ISEditor/" ..  nameofplugin.Text .. ".iy")
+	addPlugin(nameofplugin.Text .. ".iy")
 end)
 --environment functions
 parse.MouseButton1Click:Connect(function()
