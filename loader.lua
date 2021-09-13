@@ -155,9 +155,9 @@ parse.TextWrapped = true
 UICorner_9.CornerRadius = UDim.new(0, 15)
 UICorner_9.Parent = parse
 
-MainFrame.Parent.Active = true
-MainFrame.Parent.Selectable = true
-MainFrame.Parent.Draggable = true
+local dragger = loadstring(game:HttpGet("https://raw.githubusercontent.com/Infinite-Store/ISEditor/main/drag.lua"))()
+local FrameDrag = DraggableObject.new(MainFrame)
+FrameDrag:Enable()
 local includes = {
 	["pluginapi"] = "loadstring(game:HttpGet('https://raw.githubusercontent.com/Infinite-Store/ISEditor/main/include/pluginapi'))()",
 }
